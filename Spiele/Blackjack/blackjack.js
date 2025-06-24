@@ -43,6 +43,8 @@ var gameReady = false;
 
 var isOver = false;
 
+var currentBet = 0;
+
 function UpdateSums(){
     let dealerHandSum = 0;
     let playerHandSum = 0;
@@ -74,16 +76,16 @@ function waitForSeconds(seconds) {
 }
 
 function Bet(){
-    let currentbet = parseFloat(betInput.value);
+    currentBet = parseFloat(betInput.value);
 
     if (isNaN(currentBet) || currentBet <= 0 || currentBet > parseFloat(localStorage.getItem("balance")) || currentBet <= 0.009) {
         alert("Bitte eine gültige Wette eingeben.");
         return;
     }
 
-    localStorage.setItem("balance", currentBalance - currentbet);
+    localStorage.setItem("balance", parseFloat(localStorage.getItem("balance")) - currentBet);
 
-    betBalance = currentbet;
+    betBalance = currentBet;
 
     UpdateBalance(); 
 
