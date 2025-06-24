@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Casino Stavenhagen - Crash</title>
+    <link rel="icon" type="image/png" href="../../img/casino-logo.png">
+    <link rel="stylesheet" href="../../main.css">
+    <style>
+        .site-content {
+            border: 2px solid #14CC60;
+            border-radius: 12px;
+            padding: 20px;
+            width: 60%;
+        
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            background-color: #036D19;
+
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .side-menu {
+            background-color:#040f11;
+            border: 2px solid #14CC60;
+            border-radius: 5px;
+            padding: 20px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            height: 550px;
+        }
+
+        .side-menu label{
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #036D19;
+        }
+
+        .side-menu p{
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #0A2E36
+        }
+
+        .main-screen{
+            position: absolute;
+
+            border: 2px solid #14CC60;
+            border-radius: 12px;
+            background-color: #040f11;
+
+            right: 470px;
+            top: 280px;
+
+            width: 600px;
+            height: 400px;
+        }
+
+
+
+        .main-screen p{
+            position: absolute;
+            top: 100px;
+            left: 150px;
+            font-size: 7em;
+            font-weight: bold;
+            color: #14CC60;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="../../index.html"> <img src="../../img/casino-logo.png"> Casino Stavenhagen</a></div>
+
+        <div class="balance-display">
+            <span id="balance">Guthaben: 0,00€</span>
+            <a href="../../Sub/aufladen.html"><button>+</button></a>
+        </div>
+    </nav>
+
+    <h1>Crash</h1>
+
+    <div class="site-content">
+        <div id="side-menu" class="side-menu">
+            <input id="bet" type="number" placeholder="Wette in €">
+            <button onclick="Enter()" id="enter-button">Wette platzieren und einsteigen</button>
+            <button hidden onclick="Cashout()" id="cashout-button">Aussteigen</button>
+            <label id="game-in-progress">Warte auf Wette...</label>
+        </div>
+
+        <div class="main-screen">
+            <p id="multiplier">0.00x</p>
+        </div>
+    </div>
+
+    <script src="crash.js"></script>
+</body>
+</html>

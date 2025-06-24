@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Casino Stavenhagen - Home</title>
+    <link rel="icon" type="image/png" href="img/casino-logo.png">
+    <link rel="stylesheet" href="main.css"> 
+</head>
+<body>
+    <nav class="navbar" id="nav-bar">
+        <div class="logo"><a href="index.html"> <img src="img/casino-logo.png"> Casino Stavenhagen</a></div>
+
+        <div class="balance-display">
+            <span id="balance">Guthaben: 0€</span>
+            <a href="Sub/aufladen.html"><button>+</button></a>
+        </div>
+    </nav>
+
+    <div class="site-content" id="site">
+        <div class="games-area">
+            <h1>Vorgestellte Spiele</h1>
+            <div class="game">
+                <a href="Spiele/Blackjack/blackjack.html"><img src="img/blackjack-cover.png" width="300px"></a>
+                <a href="Spiele/Mines/mines.html"><img src="img/minen-cover.png" width="300px"></a>
+                <a href="Spiele/Crash/crash.html"><img src="img/crash-cover.png" width="300px"></a>
+                <a href="Spiele/Ballon/ballon.html"><img src="img/ballon-cover.png" width="300px"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="site-content" id="verification">
+        <h1>!Achtung!</h1>
+        <h2>Dies ist ein Online Casino. Sie müssen über 18 sein um hier zu spielen. Spielen sie rücksichtsvoll.</h2>
+        <h1></h1>
+        <h2><b>Benutzername:</b></h2>
+        <input type="text" id="username">
+        <h2><b>Passwort:</b></h2>
+        <input type="password" id="password">
+        <h1></h1>
+        <button onclick="Login()">Verstanden und anmelden</button>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Casino Stavenhagen - Minen</title>
+    <link rel="icon" type="image/png" href="../../img/casino-logo.png">
+    <link rel="stylesheet" href="../../main.css">
+    <style>
+        .bomb-button {
+            background-color: #044721;
+            color: #0A2E36;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+
+            width: 100px;
+            height: 100px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bomb-button img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .bomb-button:hover {
+            background-color: rgb(7, 61, 30);
+            transform: scale(1.05);
+        }
+
+        .bomb-button:active {
+            transform: scale(0.95);
+        }
+
+
+        .bomb-container {
+            display: grid;
+            grid-template-columns: repeat(5, 100px);
+            gap: 8px;
+            justify-items: center;
+            padding: 20px;
+
+            width: max-content;
+            margin-left: auto;
+            margin-right: 20px;
+        }
+
+        .site-content {
+            border: 2px solid #14CC60;
+            border-radius: 12px;
+            padding: 20px;
+            width: 60%;
+        
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            background-color: #036D19;
+
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .mine-menu {
+            background-color:#040f11;
+            border: 2px solid #14CC60;
+            border-radius: 5px;
+            padding: 20px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            height: 550px;
+        }
+
+        .mine-menu label{
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #036D19;
+        }
+
+        .mine-menu p{
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #0A2E36
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo"><a href="../../index.html"> <img src="../../img/casino-logo.png"> Casino Stavenhagen</a></div>
+
+        <div class="balance-display">
+            <span id="balance">Guthaben: 0€</span>
+            <a href="../../Sub/aufladen.html"><button>+</button></a>
+        </div>
+    </nav>
+
+    <h1>Minen</h1>
+
+    <div class="site-content">
+
+        <div id="mine-menu" class="mine-menu">
+            <input id="bet" type="number" placeholder="Wette in €">
+            <select id="difficulty">
+                <option value="Easy">Einfach - 3 Bomben</option>
+                <option value="Medium">Mittel - 6 Bomben</option>
+                <option value="Hard">Schwer - 12 Bomben</option>
+            </select>
+            <button onclick="BetButtonClick()" id="bet-button">Wette platzieren</button>
+            <button onclick="ExitGame()" id="exit-button">Aussteigen</button>
+            <p id="multiplier-indicator">Multiplikator: 1x</p>
+            <label id="game-in-progress">Spiel im Gange...</label>
+        </div>
+
+        <div id="bomb-container" class="bomb-container">    
+            <button class="bomb-button">
+                <img hidden src="img/diamond.png">
+                <img hidden src="img/bomb.png">
+            </button>
+
+            <button class="bomb-button">
+                <img hidden src="img/diamond.png">
+                <img hidden src="img/bomb.png">
+            </button>
+
+            <button class="bomb-button">
+                <img hidden src="img/diamond.png">
+                <img hidden src="img/bomb.png">
+            </button>
+
+            <button class="bomb-button">
+                <img hidden src="img/diamond.png">
+                <img hidden src="img/bomb.png">
+            </button>
+
+            <button class="bomb-button">
+                <img hidden src="img/diamond.png">
+                <img hidden src="img/bomb.png">
+            </button>
+
+            <button class="bomb-button">
+                <img hidden src="img/diamond.png">
+                <img hidden src="img/bomb.png">
+            </button>
+
+            <button class="bomb-button">
+                <img hidden src="img/diamond.png">
+                <img hidden src="img/bomb.png">
+            </button>
+
+            <button class="bomb-button">
+                <img hidden src="img/diamond.png">
+                <img hidden src="img/bomb.png">
+            </button>
+
+            <button class="bomb-button">
+                <img hidden src="img/diamond.png">
+                <img hidden src="img/bomb.png">
+            </button>
+
+            <button class="bomb-button">
+                <img hidden src="img/diamond.png">
+                <img hidden src="img/bomb.png">
+            </button>
+
+            <button class="bomb-button">
+                <img hidden src="img/diamond.png">
+                <img hidden src="img/bomb.png">
+            </button>
+
+            <button class="bomb-button">
+                <img hidden src="img/diamond.png">
+                <img hidden src="img/bomb.png">
+            </button>
+
+            <button class="bomb-button">
+                <img hidden src="img/diamond.png">
+                <img hidden src="img/bomb.png">
+            </button>
+
+            <button class="bomb-button">
+                <img hidden src="img/diamond.png">
+                <img hidden src="img/bomb.png">
+            </button>
+
+            <button class="bomb-button">
+                <img hidden src="img/diamond.png">
+                <img hidden src="img/bomb.png">
+            </button>
+
+            <button class="bomb-button">
+                <img hidden src="img/diamond.png">
+                <img hidden src="img/bomb.png">
+            </button>
+
+            <button class="bomb-button">
+                <img hidden src="img/diamond.png">
+                <img hidden src="img/bomb.png">
+            </button>
+
+            <button class="bomb-button">
+                <img hidden src="img/diamond.png">
+                <img hidden src="img/bomb.png">
+            </button>
+
+            <button class="bomb-button">
+                <img hidden src="img/diamond.png">
+                <img hidden src="img/bomb.png">
+            </button>
+
+            <button class="bomb-button">
+                <img hidden src="img/diamond.png">
+                <img hidden src="img/bomb.png">
+            </button>
+            <button class="bomb-button">
+                <img hidden src="img/diamond.png">
+                <img hidden src="img/bomb.png">
+            </button>
+
+            <button class="bomb-button">
+                <img hidden src="img/diamond.png">
+                <img hidden src="img/bomb.png">
+            </button>
+
+            <button class="bomb-button">
+                <img hidden src="img/diamond.png">
+                <img hidden src="img/bomb.png">
+            </button>
+
+            <button class="bomb-button">
+                <img hidden src="img/diamond.png">
+                <img hidden src="img/bomb.png">
+            </button>
+
+            <button class="bomb-button">
+                <img hidden src="img/diamond.png">
+                <img hidden src="img/bomb.png">
+            </button>
+        </div>
+    </div>
+    <script src="mines.js"></script>
+</body>
+</html>

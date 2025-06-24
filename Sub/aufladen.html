@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Casino - Blackjack</title>
+    <link rel="icon" type="image/png" href="../img/casino-logo.png">
+    <link rel="stylesheet" href="../main.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo"><a href="../index.html"> <img src="../img/casino-logo.png"> Casino Stavenhagen</a></div>
+        
+        <div class="balance-display">
+            <span id="balance">Guthaben: 0€</span>
+            <a href="aufladen.html"><button>+</button></a>
+        </div>
+    </nav>
+
+    <div class="site-content">
+        <h1>Aufladen</h1>
+        <input type ="number" id="deposit-amount" placeholder="Wert in €">
+        <button onclick="DepositAmount()">Aufladen</button>
+        <button onclick="SetToZero()">Set to 0</button>
+    </div>
+
+    <script>
+        const amount = document.getElementById("deposit-amount");
+
+        const balanceDisplay = document.getElementById("balance");
+
+        function UpdateBalance(){
+            balanceDisplay.textContent = ("Guthaben: " + parseFloat(localStorage.getItem("balance")).toFixed(2) + "€").replace(".", ",");
+        }
+
+        UpdateBalance();
+
+        function DepositAmount(){
+            if(amount.value == "" || parseFloat(amount.value) <= 0){
+                console.error("Invalide Zahl!");
+                alert("Invalide Zahl!");
+                amount.value = "";
+                return;
+            }
+            let depositAmount = parseFloat(amount.value);
+            let currentBalance = localStorage.getItem("balance");
+            currentBalance = parseFloat(currentBalance);
+            currentBalance += depositAmount;
+
+            console.log(currentBalance);
+
+            localStorage.setItem("balance", currentBalance);
+            amount.value = "";
+
+            UpdateBalance();
+        }
+
+        function SetToZero(){
+            localStorage.setItem("balance", 0);
+            console.log("Guthaben auf 0 gesetzt.");
+            UpdateBalance();
+        }
+    </script>
+</body>
+</html>

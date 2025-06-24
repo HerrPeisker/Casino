@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Casino Stavenhagen - Blackjack</title>
+    <link rel="icon" type="image/png" href="../../img/casino-logo.png">
+    <link rel="stylesheet" href="../../main.css">
+    <style>
+        .game-window {
+            border: 2px solid #14CC60;
+            border-radius: 12px;
+            padding: 20px;
+            width: 80%;
+        
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            background-color: #036D19;
+        }
+
+        .card-holder {
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            display: flex;
+        }
+
+        .card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80px;
+            height: 120px;
+            border: 2px solid white;
+            border-radius: 12px;
+            color: black;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+            background-color: white;
+        }
+
+        .section-title {
+            margin: 16px 0 8px;
+            font-size: 1.3em;
+        }
+
+        .start-panel{
+            background-color: #036D19;
+            border: 2px solid #14CC60;
+            border-radius: 12px;
+            padding: 20px;
+            width: 80%;
+
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+
+            font-size: 24px;
+        }
+
+        h4{
+            font-style: italic;
+        }
+
+    
+        .balance-display {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid #14CC60;
+            border-radius: 12px;
+            padding: 8px 12px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            right: 10px;
+        }
+
+
+        .balance-display button {
+            background-color: #14CC60;
+            color: #0A2E36;
+            border: none;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 28px;
+            height: 28px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .balance-display button:hover {
+            background-color: #12b156;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo"><a href="../../index.html"> <img src="../../img/casino-logo.png"> Casino Stavenhagen</a></div>
+
+        <div class="balance-display">
+            <span id="balance">Guthaben: 0€</span>
+            <a href="../../Sub/aufladen.html"><button>+</button></a>
+        </div>
+    </nav>
+
+  <h1>Blackjack</h1>
+
+  <div class="start-panel" id="start-panel">
+    <h3>Regeln</h3>
+    <h4>
+        Ziel
+    </h4>
+    <p>
+        Das Ziel ist es so nah wie möglich an eine Kartensumme von 21 zu kommen ohne diese zu überschreiten. <br>
+        Wenn du näher an 21 bist als der Dealer, hast du gewonnen. Aber wenn du über 21 kommst, verlierst du. <br>
+        Wenn der Dealer über 21 kommt, gewinnst du ebenfalls.
+    </p>
+    <h4>
+        Ablauf
+    </h4>
+    <p>
+        Der Wert der Karte steht auf der Karte. <br>
+        Du und der Dealer bekommen jeweils 2 Karten. Eine der Karten des Dealers ist verdeckt. <br>
+        Du kannst jede Runde zwischen "Ziehen" oder "Bleiben" wählen. <br>
+        Der Dealer zieht bei einer Kartensumme von 17 oder mehr keine Karte mehr. <br>
+        Bei einer Kartensumme von 16 oder weniger zieht der Dealer immer eine Karte. <br>
+        Bei 2 aufeinanderfolgenden "Bleiben" wird die Runde beendet und die Werte werden verglichen.
+        
+    </p>
+
+    <input type="number" id="bet" placeholder="Wette in €">
+
+    <button onclick="StartGame()">Spielen</button>
+  </div>
+
+  <div id="game-window" class="game-window" hidden>
+    <h3 class="section-title" id="dealer-hand-sum">Dealer's Hand</h3>
+    <div class="card-holder" id="dealer-card-holder"></div>
+
+    <h3 class="section-title" id="player-hand-sum">Deine Hand</h3>
+    <div class="card-holder" id="player-card-holder"></div>
+
+    <div hidden id="status">
+        <h2 id="status-text">Du hast gewonnen!<br>⠀</h2>
+    </div>
+
+    <div id="player-buttons">
+        <button onclick="PlayerPullButton()">Ziehen</button>
+        <button onclick="PlayerStayButton()">Bleiben</button>
+    </div>
+  </div>
+
+  <script src="blackjack.js"></script>
+</body>
+</html>
