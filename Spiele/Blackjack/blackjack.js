@@ -314,17 +314,17 @@ async function GameDraw(){
     endOfGame = false;
 }
 
-function CheckStay(){
-    if(activeStay && isOver){
-        if(playerSum > dealerSum){
+function CheckStay() {
+    if (playerSum > 21 || dealerSum > 21) return;
+
+    if (activeStay && playerButtons.hidden) {
+        isOver = true;
+
+        if (playerSum > dealerSum) {
             DealerLose();
-        }
-
-        if(playerSum < dealerSum){
+        } else if (playerSum < dealerSum) {
             PlayerLose();
-        }
-
-        if(playerSum == dealerSum){
+        } else {
             GameDraw();
         }
     }
